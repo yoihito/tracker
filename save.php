@@ -4,7 +4,7 @@
 $x = $_GET['x'];
 $y = $_GET['y'];
 $file = fopen("coords","w");
-if (!$file) echo "unsuccess";
+if (!$file) echo "unsuccess"; else echo "success";
 fprintf($file,"%s %s",$x,$y);
 fclose($file);
 ?>
