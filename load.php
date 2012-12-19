@@ -1,7 +1,6 @@
 <?php
 $file = fopen("coords","r");
-fscanf($file,"%s\n",$x);
-fscanf($file,"%s\n",$y);
+fscanf($file,"%s %s",$x);
 echo $x;
 echo $y;
 fclose($file);

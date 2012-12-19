@@ -5,6 +5,6 @@ $x = $_GET['x'];
 $y = $_GET['y'];
 $file = fopen("coords","w");
 if (!$file) echo "unsuccess";
-fprintf($file,"%s\n%s",$x,$y);
+fprintf($file,"%s %s",$x,$y);
 fclose($file);
 ?>
