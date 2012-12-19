@@ -22,7 +22,7 @@ function updateMap() {
 	$.get('load.php',
 		function(data) {
 			map.panTo([data.lat,data.lng]);
-			L.Marker([data.lat,data.lng],{'title':'I\'m here'}).addTo(map);
+			L.Marker([data.lat,data.lng]).addTo(map);
 		}, 
 		'json'
 	);
