@@ -10,6 +10,7 @@
 
 var map;
 var manicon;
+var marker;
 
 function initMap() {
 	
@@ -23,6 +24,7 @@ function initMap() {
 		key: '8ee2a50541944fb9bcedded5165f09d9',
 		styleId: 997
 	}).addTo(map);
+	marker = new L.Marker([0,0],{icon: manicon, title:'I\'m here!'}).addTo(map);
 
 }
 
@@ -30,7 +32,7 @@ function updateMap() {
 	$.get('load.php',
 		function(data) {
 			map.panTo([data.lat,data.lng]);
-			L.marker([data.lat,data.lng],{icon: manicon, title:'I\'m here!'}).addTo(map);
+			marker.setLatLng([data.lat,data.lng]);
 		}, 
 		'json'
 	);
