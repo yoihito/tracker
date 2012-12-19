@@ -22,7 +22,7 @@ function initMap() {
 function updateMap() {
 	$.get('load.php',
 		function(data) {
-			map.panTo([data.lat,data.lng]);
+			map.setView([data.lat,data.lng],11);
 		}, 
 		'json'
 	);
