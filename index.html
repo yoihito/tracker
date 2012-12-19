@@ -22,7 +22,8 @@ function updateMap() {
 	$.get('load.php',
 		function(data) {
 			map.panTo([data.lat,data.lng]);
-			L.Marker([data.lat,data.lng]).addTo(map);
+			//L.Marker([data.lat,data.lng]).addTo(map);
+			L.marker([50.5, 30.5]).addTo(map);
 		}, 
 		'json'
 	);
