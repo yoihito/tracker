@@ -9,20 +9,28 @@
 <script>
 
 var map;
+var manicon;
 
 function initMap() {
+	
+	manicon = L.icon({ 
+		iconUrl: 'img/man.png',
+		iconSize: [64,64],
+	});
+			
 	map = L.map('map').setView([51.505, -0.09], 13);
 	L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
 		key: '8ee2a50541944fb9bcedded5165f09d9',
 		styleId: 997
 	}).addTo(map);
+
 }
 
 function updateMap() {
 	$.get('load.php',
 		function(data) {
 			map.panTo([data.lat,data.lng]);
-			L.marker([data.lat,data.lng],{title:'I\'m here!'}).addTo(map);
+			L.marker([data.lat,data.lng],{icon: manicon, title:'I\'m here!'}).addTo(map);
 		}, 
 		'json'
 	);
