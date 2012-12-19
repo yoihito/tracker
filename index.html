@@ -22,7 +22,7 @@ function initMap() {
 function updateMap() {
 	$.get('load.php',
 		function(data) {
-			map.setView([data.lat,data.lng],11);
+			map.panTo([data.lat,data.lng]);
 		}, 
 		'json'
 	);
@@ -30,7 +30,8 @@ function updateMap() {
 
 function runUpdate() {
 	updateMap();
-//	setTimeout(runUpdate(),2000);
+	alert('request update');
+	setTimeout(runUpdate(),4000);
 }
 
 
@@ -41,7 +42,7 @@ function runUpdate() {
 <body>
 
 <div id="map" style="width: 600px; height: 400px"></div>
-<button onClick="updateMap()">update</button>
+<button onClick="runUpdate()">update</button>
 <script>initMap();</script>
 
 </body>
