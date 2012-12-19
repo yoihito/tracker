@@ -29,7 +29,8 @@ function updateMap() {
 }
 
 function runUpdate() {
-	window.setInterval(updateMap(),1000);
+	updateMap();
+	setTimeout(runUpdate(),2000);
 }
 
 
