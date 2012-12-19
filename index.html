@@ -6,9 +6,11 @@
 <div id="map" style="width: 600px; height: 400px"></div>
 <script src="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js"></script>
 <script>
-    var cloudmade = new CM.Tiles.CloudMade.Web({key: '8ee2a50541944fb9bcedded5165f09d9'});
-    var map = new CM.Map('map', cloudmade);
-    map.setCenter(new CM.LatLng(51.514, -0.137), 15);
+var map = L.map('map').setView([51.505, -0.09], 13);
+L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
+    key: '8ee2a50541944fb9bcedded5165f09d9',
+    styleId: 997
+}).addTo(map);
 </script>
 </body>
 </html>
