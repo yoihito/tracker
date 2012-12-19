@@ -9,13 +9,29 @@
 <script>
 
 var map;
+
 function initMap() {
-map = L.map('map').setView([51.505, -0.09], 13);
-L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
-    key: '8ee2a50541944fb9bcedded5165f09d9',
-    styleId: 997
-}).addTo(map);
+	map = L.map('map').setView([51.505, -0.09], 13);
+	L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
+		key: '8ee2a50541944fb9bcedded5165f09d9',
+		styleId: 997
+	}).addTo(map);
+	runUpdate();
 }
+
+function updateMap() {
+	$.get('load.php',
+		function(data) {
+			map.panTo([data.lat,data.lng]);
+		}, 
+		'json'
+	);
+}
+
+function runUpdate() {
+	window.setInterval(updateMap(),1000);
+}
+
 
 
 
