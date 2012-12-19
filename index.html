@@ -22,6 +22,7 @@ function updateMap() {
 	$.get('load.php',
 		function(data) {
 			map.panTo([data.lat,data.lng]);
+			L.Marker([data.lat,data.lng],{'title':'I\'m here'}).addTo(map);
 		}, 
 		'json'
 	);
@@ -29,8 +30,7 @@ function updateMap() {
 
 function runUpdate() {
 	updateMap();
-	alert('request update');
-	setTimeout(runUpdate,4000);
+	setTimeout(runUpdate,3000);
 }
 
 
